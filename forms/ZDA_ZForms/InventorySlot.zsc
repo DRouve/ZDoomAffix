@@ -1,0 +1,92 @@
+/// The main button element, which triggers an event whenever it is clicked.
+///
+/// This element also has a secondary mode that allows it to be held down to
+/// trigger periodic "held" events.
+///
+/// This element uses the events [`ZF_Handler.buttonClickCommand`] when in
+/// "normal" mode and [`ZF_Handler.buttonHeldCommand`] when in "held" mode.
+///
+/// Also see the documentation for [`ZF_ButtonBase`] as a lot of button things are documented
+/// there.
+class ZDA_ZF_InventorySlot : ZDA_ZF_Button {
+	ZDA_InventorySlot playerInventorySlot;
+	ZDA_InventoryItem heldItem;
+	bool isWeaponSlot;
+	ZDA_ZF_Image itemImage;
+	int id;
+
+	private void config(
+		string text = "", ZDA_ZF_Handler cmdHandler = NULL, Name command = '',
+		Name rmbCommand = '', ZDA_ZF_BoxTextures inactive = NULL, ZDA_ZF_BoxTextures hover = NULL,
+		ZDA_ZF_BoxTextures click = NULL, ZDA_ZF_BoxTextures disabled = NULL,
+		Font fnt = NULL, double textScale = 1, int textColor = Font.CR_WHITE,
+		int holdInterval = -1, AlignType alignment = AlignType_Center,
+		ZDA_InventorySlot playerInventorySlot = NULL, ZDA_InventoryItem heldItem = NULL,
+		bool isWeaponSlot = false
+	) {
+		setFont(fnt);
+		setHoldTicInterval(holdInterval);
+		setText(text);
+		setTextScale(textScale);
+		setTextures(inactive, hover, click, disabled);
+		setTextColor(textColor);
+		setAlignment(alignment);
+		setAlpha(1.0);
+
+		self.cmdHandler = cmdHandler;
+		self.command = command;
+		self.rmbCommand = rmbCommand;
+		self.heldItem = heldItem;
+		self.isWeaponSlot = isWeaponSlot;
+		self.playerInventorySlot = playerInventorySlot;
+	}
+
+	/// Returns a newly created button element.
+	///
+	/// The position used is relative to whatever the element is packed into
+	/// later.
+	/// 
+	/// The [`ZF_BoxTextures`] arguments correspond to the button's states described in
+	/// [`ButtonState`]. The text on the button will be aligned to `alignment`.
+	///
+	/// `textColor` takes on values from [`Font.EColorRange`], which cannot be
+	/// named as a type due to current ZScript limitations.
+	///
+	/// If `fnt` is `NULL`, then `smallfont` is used instead.
+	///
+	/// `cmdHandler` and `command` determine where the button's events are sent to. If
+	/// `holdInterval` is `-1`, then [`ZF_Handler.buttonClickCommand`] is sent
+	/// on button clicks. Otherwise, if `holdInterval` is `>= 0`, then a
+	/// [`ZF_Handler.buttonHeldCommand`] is sent every `holdInterval + 1`
+	/// ticks.
+	static ZDA_ZF_InventorySlot create(
+		Vector2 pos, Vector2 size, string text = "", ZDA_ZF_Handler cmdHandler = NULL, Name command = '',
+		Name rmbCommand = '', ZDA_ZF_BoxTextures inactive = NULL, ZDA_ZF_BoxTextures hover = NULL, ZDA_ZF_BoxTextures click = NULL,
+		ZDA_ZF_BoxTextures disabled = NULL, Font fnt = NULL, double textScale = 1, int textColor = Font.CR_WHITE,
+		int holdInterval = -1, AlignType alignment = AlignType_Center, ZDA_InventorySlot playerInventorySlot = NULL, 
+		ZDA_InventoryItem heldItem = NULL, bool isWeaponSlot = false
+	) {
+		let ret = new('ZDA_ZF_InventorySlot');
+
+		ret.config(text, cmdHandler, command, rmbCommand, inactive, hover, click, disabled, fnt, textScale, textColor, holdInterval, alignment, playerInventorySlot, heldItem, isWeaponSlot);
+		ret.setBox(pos, size);
+
+		return ret;
+	}
+
+	/// Center item's icon at the center of inventory slot
+	static void centerItemIcon(ZDA_ZF_Image image, ZDA_ZF_InventorySlot slot) {
+        slot.itemImage.SetBox(
+			(
+				slot.GetPosX() + (slot.GetWidth() / 2 - image.GetWidth() / 2), 
+				slot.GetPosY() + (slot.GetHeight() / 2 - image.GetHeight() / 2)
+			), 
+			image.GetSize()
+		);
+    }
+
+	override void ticker() {
+		console.printf("111");
+		super.ticker();
+	}
+}

@@ -1,0 +1,62 @@
+// Sphere of Transfiguration
+Sprite DASTA0, 32, 32
+{
+	Offset 16, 32
+	Patch DASTA0, 0, 0
+}
+
+// Sphere of Metamorphosis
+Sprite DASMA0, 32, 32
+{
+	Offset 16, 32
+	Patch DASMA0, 0, 0
+}
+
+// Sphere of Sorcery
+Sprite DASSA0, 32, 32
+{
+	Offset 16, 32
+	Patch DASSA0, 0, 0
+}
+
+// Sphere of Majesty
+Sprite DASMB0, 32, 32
+{
+	Offset 16, 32
+	Patch DASMB0, 0, 0
+}
+
+// Sphere of Havoc
+Sprite DASHA0, 32, 32
+{
+	Offset 16, 32
+	Patch DASHA0, 0, 0
+}
+
+// Entropy Datachip
+Sprite DAEDA0, 64, 72
+{
+	Offset 32, 72
+	Patch DAEDA0, 0, 0
+}
+
+// Sphere of Worthy
+Sprite DASWA0, 32, 32
+{
+	Offset 16, 32
+	Patch DASWA0, 0, 0
+}
+
+// Sphere of Deity
+Sprite DASDA0, 32, 32
+{
+	Offset 16, 32
+	Patch DASDA0, 0, 0
+}
+
+// Sphere of Corruption
+Sprite DASCA0, 32, 32
+{
+	Offset 16, 32
+	Patch DASCA0, 0, 0
+}

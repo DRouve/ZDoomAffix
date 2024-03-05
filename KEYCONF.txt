@@ -1,0 +1,25 @@
+// --------------------------------------------------
+// GENERAL
+//
+
+addkeysection "ZDoom Affix" ZDoomAffixKeySection
+
+// Drop Weapon
+addmenukey "Drop Weapon" zda_drop_weapon
+alias zda_drop_weapon "netevent DropWeapon"
+
+// Replace Weapon
+addmenukey "Replace Weapon" zda_replace_weapon
+alias zda_replace_weapon "netevent ReplaceWeapon"
+
+// Compare Weapons
+addmenukey "Compare Weapons" zda_compare_weapons
+alias zda_compare_weapons "netevent CompareWeapons"
+
+// Equipped Info
+addmenukey "Show equipped info" zda_equipped_info
+alias zda_equipped_info "netevent ShowEquippedInfo"
+
+// Recycle
+addmenukey "Recycle item" zda_recycle_item
+alias zda_recycle_item "netevent Recycle"

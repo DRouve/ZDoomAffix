@@ -1,0 +1,31 @@
+// Customized GameInfo
+gameinfo
+{
+    // Player Class
+    playerclasses = "ZDA_DoomPlayer"
+    StatusBarClass = "ZDA_HUD" 
+
+    // Respawning
+    defaultrespawntime = 300
+    
+    // Drop Style
+    defaultdropstyle = 1
+
+    // Inventory
+    definventorymaxamount = 1000
+    
+    // Menus/UI
+    dimamount = 0
+    menufontcolor_title = "green"
+    menufontcolor_label = "red"
+    menufontcolor_value = "white"
+    menufontcolor_action = "white"
+    menufontcolor_header = "white"
+    menufontcolor_highlight = "green"
+    menufontcolor_selection = "green"
+
+    //StatusBarClass = "ZDA_HUD"
+    AddEventHandlers = "ZDA_WorldHandler",
+                       "ZDA_PlayerHandler",
+                       "ZDA_StaticHandler"
+}
